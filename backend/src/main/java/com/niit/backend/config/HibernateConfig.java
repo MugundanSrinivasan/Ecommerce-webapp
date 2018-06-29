@@ -10,10 +10,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.backend.model.Category;
+import com.niit.backend.model.Product;
+import com.niit.backend.model.Supplier;
 
 @Configuration
+@EnableTransactionManagement
 public class HibernateConfig {
 @Bean
 public DataSource getH2DataSource()
@@ -34,8 +38,11 @@ public SessionFactory getSessionFactory()
 	pro.put("hibernate.hbm2ddl.auto", "update");
 	pro.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 	LocalSessionFactoryBuilder sfb= new LocalSessionFactoryBuilder(getH2DataSource());
-	sfb.addAnnotatedClass(Category.class);
+	
 	sfb.addProperties(pro);
+	sfb.addAnnotatedClass(Category.class);
+	sfb.addAnnotatedClass(Supplier.class);
+	sfb.addAnnotatedClass(Product.class);
 	SessionFactory sf= sfb.buildSessionFactory();
 	System.out.println("session factory");
 	return sf;

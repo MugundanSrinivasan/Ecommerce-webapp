@@ -2,13 +2,12 @@ package com.niit.backend.DAO;
 
 import java.util.List;
 
-
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import com.niit.backend.model.Supplier;
 @Repository("SupplierDAO")
@@ -68,7 +67,18 @@ SessionFactory sf;
 
 	public List<Supplier> listSupplier() {
 		
-		return null;
+		try
+		{
+			Session session= sf.openSession();
+			Query query=session.createQuery("from Supplier");
+			List<Supplier> listSupplier=query.list();
+			session.close();
+			return listSupplier;
+		}
+		catch(Exception e)
+		{
+			return null;
+		
+		}
 	}
-
 }

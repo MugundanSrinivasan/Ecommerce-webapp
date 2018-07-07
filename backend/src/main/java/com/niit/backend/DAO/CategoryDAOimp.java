@@ -1,6 +1,7 @@
 package com.niit.backend.DAO;
 
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,19 +9,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.model.Category;
-@Repository("CategoryDAO")
+@Repository
 @Transactional
 public class CategoryDAOimp implements CategoryDAO {
 	
-	
 	@Autowired
-	SessionFactory sf;
+	SessionFactory sessionFactory;
 	
-
 	public boolean addCategory(Category category) {
 		try
 		{
-			sf.getCurrentSession().save(category);
+			sessionFactory.getCurrentSession().save(category);
 			return true;
 		}
 		catch (Exception e)
@@ -31,7 +30,7 @@ public class CategoryDAOimp implements CategoryDAO {
 	public boolean updateCategory(Category category) {
 		try
 		{
-			sf.getCurrentSession().update(category);
+			sessionFactory.getCurrentSession().update(category);
 			return true;
 		}
 		catch (Exception e)
@@ -42,7 +41,7 @@ public class CategoryDAOimp implements CategoryDAO {
 	public boolean deleteCategory(Category category) {
 		try
 		{
-			sf.getCurrentSession().delete(category);
+			sessionFactory.getCurrentSession().delete(category);
 			return true;
 		}
 		catch (Exception e){
@@ -52,7 +51,7 @@ public class CategoryDAOimp implements CategoryDAO {
 	public Category getCategory(int categoryid) {
 		try
 		{
-			Session session= sf.getCurrentSession();
+			Session session= sessionFactory.getCurrentSession();
 			Category category=(Category)session.get(Category.class, categoryid);
 			return category;
 		}
@@ -63,8 +62,19 @@ public class CategoryDAOimp implements CategoryDAO {
 	}
 
 	public List<Category> listCategory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+		
+			try
+			{
+				Session session= sessionFactory.openSession();
+				Query query=session.createQuery("from Category");
+				List<Category> listCategory=query.list();
+				session.close();
+				return listCategory;
+			}
+			catch(Exception e)
+			{
+				return null;
+			}
+		}
 }

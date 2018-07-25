@@ -5,43 +5,36 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+ <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-<nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<c:if test="${!sessionScope.loggedIn}">
+<a href="login">login</a>
+<a href="register">register</a>
+<a href="aboutus">aboutus</a>
+<a href="contactus">contactus</a>
 
-  <nav class="navbar navbar-top hidden-xs">
-    <div class="container">
-     
-      <ul class="nav navbar-nav pull-left">
-        <li><a href="home">HOME</a></li>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-        <li><a href="aboutus" class="text-white">About Us</a></li>
-        <li><a href="contactus" class="text-white">Contact Us</a></li> 
-      </ul>
-    </div>
-    <div class="dividline light-grey"></div>
-  </nav>
-  <nav class="navbar navbar-down">
-    <div class="container">
-      <div class="flex-container">  
-        <div class="navbar-header flex-item">
-          <div class="navbar-brand" href="#">TECH BAZAAR</div>
-        </div>
-        <ul class="nav navbar-nav flex-item hidden-xs">
-          <li><a href="login">LOGIN</a></li>
-          <li><a href="register">REGISTER</a></li>    
-       </ul>
-        <ul class="nav navbar-nav flex-item hidden-xs pull-right">
-          <li><a href="abc" class="">CATEGORY</a></li> 
-        </ul>
-        </div>  
-      </div>
-    </nav>
-  </nav> 
+</c:if>
+<c:if test="${sessionScope.loggedIn}">
+<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
+<a href="category">category</a>
+<a href="product">product</a>
+</c:if>
+<c:if test="${sessionScope.role=='ROLE_USER'}">
+<a href="productdisplay">view products</a>
+</c:if>
+</c:if>
+<c:if test="${sessionScope.loggedIn}">
+<font color="white" size="3">Welcome:${username}</font>
+<a href="/logout"><font color="white" size="3">LOGOUT</font></a>
+</c:if>
+
+
 </html>  

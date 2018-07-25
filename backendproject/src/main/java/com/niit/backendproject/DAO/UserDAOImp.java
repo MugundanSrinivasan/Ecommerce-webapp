@@ -35,8 +35,7 @@ SessionFactory sessionFactory;
 		{
 			return false;
 		}
-		}
-
+		}	
 	@Override
 	public User getUser(String username) {
 		try
@@ -50,5 +49,4 @@ SessionFactory sessionFactory;
 			return null;
 		}
 	}
-
 }

@@ -2,11 +2,11 @@ package com.niit.backendproject.test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.backendproject.DAO.CartDAO;
 import com.niit.backendproject.DAO.CategoryDAO;
 import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.SupplierDAO;
 import com.niit.backendproject.DAO.UserDAO;
-import com.niit.backendproject.model.Category;
 
 public class HibernateConfigTest {
 
@@ -18,6 +18,7 @@ public class HibernateConfigTest {
 	SupplierDAO supplierDAO=(SupplierDAO)context.getBean("supplierDAO");
 	ProductDAO	productDAO=(ProductDAO)context.getBean("productDAO");
 	UserDAO	userDAO=(UserDAO)context.getBean("userDAO");
+	CartDAO	cartDAO=(CartDAO)context.getBean("cartDAO");
 		/*Category category=new Category();
 		category.setCategoryname("Laptop");
 		categoryDAO.addCategory(category);*/

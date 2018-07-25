@@ -50,7 +50,8 @@ SessionFactory sessionFactory;
 			sessionFactory.getCurrentSession().update(category);
 			return true;
 		}
-		catch (Exception e){
+		catch (Exception e)
+		{
 		return false;
 	}
 	}

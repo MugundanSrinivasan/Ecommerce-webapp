@@ -12,6 +12,7 @@ public class Category {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 int categoryid;
+
 String categoryname;
 public int getCategoryid() {
 	return categoryid;

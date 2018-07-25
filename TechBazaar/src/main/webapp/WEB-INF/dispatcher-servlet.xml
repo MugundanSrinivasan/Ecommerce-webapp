@@ -10,14 +10,17 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
  	 
  	<mvc:annotation-driven/>
  	
- 	<mvc:resources location="/resources/images/" mapping="/resources/**"/>
- 	
- 	
- 	<context:component-scan base-package="com.niit.techbazaar" />
+ 	<context:component-scan base-package="com.niit" />
 
  	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view-page/"/>	
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000"/>
+	</bean>
+	
+	
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
 </beans>

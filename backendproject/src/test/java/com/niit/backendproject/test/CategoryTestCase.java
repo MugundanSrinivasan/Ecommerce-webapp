@@ -2,6 +2,8 @@ package com.niit.backendproject.test;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,9 +15,6 @@ import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.SupplierDAO;
 import com.niit.backendproject.DAO.UserDAO;
 import com.niit.backendproject.model.Category;
-import com.niit.backendproject.model.Product;
-import com.niit.backendproject.model.Supplier;
-import com.niit.backendproject.model.User;
 @RunWith(JUnit4 .class)
 public class CategoryTestCase {
 
@@ -35,20 +34,22 @@ public class CategoryTestCase {
 			productDAO=(ProductDAO)context.getBean("productDAO");
 			userDAO=(UserDAO)context.getBean("userDAO");
 		}
-	@Test
+@Test
+	
 
 	
-			public void addCategoryTest()
+			public void updateCategoryTest()
 			{
-				Category category=new Category();
+				Category category=categoryDAO.getCategory(199);
+				category.setCategoryname("mobile");
 				
-				category.setCategoryname("sony");
+				
 			
 				
-				assertTrue("Problem in Adding Category:",categoryDAO.addCategory(category));
+				assertTrue("Problem in Adding Category:",categoryDAO.updateCategory(category));
 
 			}
-	@Test
+/*	@Test
 	
 	public void addSupplierTest()
 	{
@@ -84,5 +85,17 @@ public class CategoryTestCase {
 	
 		
 		assertTrue("Problem in Adding User:",userDAO.registerUser(user));
+	}*/
+	@Test
+	public void listCategoryTest()
+	{
+		List<Category> listCategory=categoryDAO.listCategory();
+		assertTrue("problem in listing categories",listCategory.size()>0);
+		for(Category category:listCategory)
+		{
+			System.out.println(category.getCategoryid());
+			System.out.println(category.getCategoryname());
+		}
 	}
+
 }

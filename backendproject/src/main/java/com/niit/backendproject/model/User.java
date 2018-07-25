@@ -1,8 +1,6 @@
 package com.niit.backendproject.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,17 +8,19 @@ import javax.persistence.Table;
 @Table
 public class User {
 @Id
-@GeneratedValue(strategy=GenerationType.AUTO)
-int userid;
+String email;
+
 String username;
 String password;
-long mobileno;
+boolean enabled;
+String role;
 
-public int getUserid() {
-	return userid;
+String address;
+public String getEmail() {
+	return email;
 }
-public void setUserid(int userid) {
-	this.userid = userid;
+public void setEmail(String email) {
+	this.email = email;
 }
 public String getUsername() {
 	return username;
@@ -34,12 +34,26 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public long getMobileno() {
-	return mobileno;
+public boolean isEnabled() {
+	return enabled;
 }
-public void setMobileno(long mobileno) {
-	this.mobileno = mobileno;
+public void setEnabled(boolean enabled) {
+	this.enabled = enabled;
 }
+public String getRole() {
+	return role;
+}
+public void setRole(String role) {
+	this.role = role;
+}
+
+public String getAddress() {
+	return address;
+}
+public void setAddress(String address) {
+	this.address = address;
+}
+
 
 
 

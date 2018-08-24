@@ -6,7 +6,8 @@ import com.niit.backendproject.DAO.CartDAO;
 import com.niit.backendproject.DAO.CategoryDAO;
 import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.SupplierDAO;
-import com.niit.backendproject.DAO.UserDAO;
+import com.niit.backendproject.DAO.UserDetailDAO;
+
 
 public class HibernateConfigTest {
 
@@ -17,7 +18,7 @@ public class HibernateConfigTest {
 	CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 	SupplierDAO supplierDAO=(SupplierDAO)context.getBean("supplierDAO");
 	ProductDAO	productDAO=(ProductDAO)context.getBean("productDAO");
-	UserDAO	userDAO=(UserDAO)context.getBean("userDAO");
+	UserDetailDAO	userdetailDAO=(UserDetailDAO)context.getBean("userdetailDAO");
 	CartDAO	cartDAO=(CartDAO)context.getBean("cartDAO");
 		/*Category category=new Category();
 		category.setCategoryname("Laptop");

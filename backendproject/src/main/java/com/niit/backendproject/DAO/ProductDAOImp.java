@@ -15,7 +15,7 @@ import com.niit.backendproject.model.Product;
 public class ProductDAOImp implements ProductDAO {
 @Autowired
 SessionFactory sessionFactory;
-	@Override
+	
 	public boolean addProduct(Product product) {
 		try
 		{
@@ -28,7 +28,7 @@ SessionFactory sessionFactory;
 	}
 	}
 
-	@Override
+
 	public boolean updateProduct(Product product) {
 		try
 		{
@@ -41,7 +41,7 @@ SessionFactory sessionFactory;
 	}
 	}
 
-	@Override
+
 	public boolean deleteProduct(Product product) {
 	try
 	{
@@ -53,7 +53,7 @@ SessionFactory sessionFactory;
 	return false;
 }
 	}
-	@Override
+
 	public Product getProduct(int productid) {
 		try
 		{
@@ -67,7 +67,7 @@ SessionFactory sessionFactory;
 		}
 	}
 
-	@Override
+
 	public List<Product> listProduct() {
 		try
 		{
@@ -83,7 +83,7 @@ SessionFactory sessionFactory;
 		}
 	}
 
-	@Override
+	
 	public List<Product> listProductByCategory(int categoryid) {
 	try
 	{

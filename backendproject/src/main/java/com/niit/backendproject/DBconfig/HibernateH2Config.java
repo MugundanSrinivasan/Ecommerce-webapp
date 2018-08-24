@@ -21,13 +21,14 @@ import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.ProductDAOImp;
 import com.niit.backendproject.DAO.SupplierDAO;
 import com.niit.backendproject.DAO.SupplierDAOImp;
-import com.niit.backendproject.DAO.UserDAO;
-import com.niit.backendproject.DAO.UserDAOImp;
+import com.niit.backendproject.DAO.UserDetailDAO;
+import com.niit.backendproject.DAO.UserDetailDAOImp;
 import com.niit.backendproject.model.Cart;
 import com.niit.backendproject.model.Category;
 import com.niit.backendproject.model.Product;
 import com.niit.backendproject.model.Supplier;
-import com.niit.backendproject.model.User;
+import com.niit.backendproject.model.UserDetail;
+
 
 @Configuration
 @ComponentScan("com.niit")
@@ -39,7 +40,7 @@ public class HibernateH2Config {
 	{
 		DriverManagerDataSource ds= new DriverManagerDataSource();
 		ds.setDriverClassName("org.h2.Driver");
-		ds.setUrl("jdbc:h2:tcp://localhost/~/projectecommerce");
+		ds.setUrl("jdbc:h2:tcp://localhost/~/ecommerce");
 		ds.setUsername("sa");
 		ds.setPassword("sa");
 		System.out.println("data source ");
@@ -56,7 +57,7 @@ public class HibernateH2Config {
 		sfb.addAnnotatedClass(Category.class);
 		sfb.addAnnotatedClass(Supplier.class);
 		sfb.addAnnotatedClass(Product.class);
-		sfb.addAnnotatedClass(User.class);
+		sfb.addAnnotatedClass(UserDetail.class);
 		sfb.addAnnotatedClass(Cart.class);
 		System.out.println("session factory");
 		sfb.addProperties(pro);
@@ -93,10 +94,10 @@ public ProductDAO getProductDAO()
 }
 @Bean(name="userDAO")
 
-public UserDAO getUserDAO()
+public UserDetailDAO getUserDetailDAO()
 {
 	System.out.println("User bean created");
-     return new UserDAOImp();
+     return new UserDetailDAOImp();
 }
 @Bean(name="cartDAO")
 

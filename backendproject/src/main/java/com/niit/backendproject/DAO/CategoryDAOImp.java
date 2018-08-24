@@ -15,7 +15,7 @@ import com.niit.backendproject.model.Category;
 public class CategoryDAOImp implements CategoryDAO {
 @Autowired
 SessionFactory sessionFactory;
-	@Override
+	
 	public Category getCategory(int categoryid) {
 		try
 		{
@@ -30,7 +30,7 @@ SessionFactory sessionFactory;
 		
 	}
 
-	@Override
+	
 	public boolean addCategory(Category category) {
 		try
 		{
@@ -43,7 +43,7 @@ SessionFactory sessionFactory;
 	}
 	}
 
-	@Override
+	
 	public boolean updateCategory(Category category) {
 		try
 		{
@@ -55,7 +55,7 @@ SessionFactory sessionFactory;
 		return false;
 	}
 	}
-	@Override
+	
 	public boolean deleteCategory(Category category) {
 		try
 		{
@@ -66,7 +66,7 @@ SessionFactory sessionFactory;
 		return false;
 	}
 	}
-	@Override
+	
 	public List<Category> listCategory() {
 		try
 		{

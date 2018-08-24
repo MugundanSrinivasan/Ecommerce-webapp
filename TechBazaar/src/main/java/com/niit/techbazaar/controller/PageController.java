@@ -6,13 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.niit.backendproject.DAO.UserDAO;
-import com.niit.backendproject.model.User;
+import com.niit.backendproject.DAO.UserDetailDAO;
+import com.niit.backendproject.model.UserDetail;
+
+
 
 @Controller
 public class PageController {
 	@Autowired
-	UserDAO userDAO;
+	UserDetailDAO userdetailDAO;
 	@RequestMapping(value= {"/","/home"})
 	public String rootPage()
 	{
@@ -26,8 +28,8 @@ public String showLoginPage()
 @RequestMapping(value="register")
 public String showRegisterPage(Model m)
 {
-	User user=new User();
-	m.addAttribute("user",user);
+	UserDetail userdetail=new UserDetail();
+	m.addAttribute("user",userdetail);
 	return "Register";
 }
 @RequestMapping(value="aboutus")
@@ -42,9 +44,9 @@ public String showContactUsPage()
 	return "Contactus";
 }
 @RequestMapping(value="insertuserdetail")
-public String insertUserDetail(@ModelAttribute("user")User user,Model m)
+public String insertUserDetail(@ModelAttribute("user")UserDetail userdetail,Model m)
 {
-	userDAO.registerUser(user);
+	userdetailDAO.registerUser(userdetail);
 	return "Login";
 }
 }

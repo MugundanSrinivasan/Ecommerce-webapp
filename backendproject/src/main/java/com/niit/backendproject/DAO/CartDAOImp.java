@@ -2,6 +2,7 @@ package com.niit.backendproject.DAO;
 
 import java.util.List;
 
+
 import javax.persistence.Query;
 
 import org.hibernate.Session;
@@ -16,7 +17,7 @@ import com.niit.backendproject.model.Cart;
 public class CartDAOImp implements CartDAO {
 	@Autowired
 	SessionFactory sessionFactory;
-	@Override
+
 	public Cart getCart(int cartid) {
 		try
 		{
@@ -30,7 +31,7 @@ public class CartDAOImp implements CartDAO {
 	}
 	}
 
-	@Override
+	
 	public boolean addCart(Cart cart) {
 		try
 		{
@@ -43,7 +44,7 @@ public class CartDAOImp implements CartDAO {
 	}
 	}
 
-	@Override
+	
 	public boolean updateCart(Cart cart) {
 		try
 		{
@@ -56,7 +57,7 @@ public class CartDAOImp implements CartDAO {
 	}
 	}
 
-	@Override
+	
 	public boolean deleteCart(Cart cart) {
 		try
 		{
@@ -69,7 +70,7 @@ public class CartDAOImp implements CartDAO {
 	}
 	}
 
-	@Override
+	
 	public List<Cart> listCart(String username) {
 		try
 		{

@@ -13,7 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.niit.backendproject.DAO.CategoryDAO;
 import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.SupplierDAO;
-import com.niit.backendproject.DAO.UserDAO;
+import com.niit.backendproject.DAO.UserDetailDAO;
 import com.niit.backendproject.model.Category;
 @RunWith(JUnit4 .class)
 public class CategoryTestCase {
@@ -21,7 +21,7 @@ public class CategoryTestCase {
 	static CategoryDAO categoryDAO;
 	static ProductDAO productDAO;
 	static SupplierDAO supplierDAO;
-	static UserDAO userDAO;
+	static UserDetailDAO userdetailDAO;
 	@BeforeClass
 			public static void executeFirst()
 		{
@@ -32,7 +32,7 @@ public class CategoryTestCase {
 			categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 			supplierDAO=(SupplierDAO)context.getBean("supplierDAO");
 			productDAO=(ProductDAO)context.getBean("productDAO");
-			userDAO=(UserDAO)context.getBean("userDAO");
+			userdetailDAO=(UserDetailDAO)context.getBean("userdetailDAO");
 		}
 @Test
 	

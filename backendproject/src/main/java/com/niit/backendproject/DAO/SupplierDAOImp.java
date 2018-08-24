@@ -16,7 +16,7 @@ import com.niit.backendproject.model.Supplier;
 public class SupplierDAOImp implements SupplierDAO {
 @Autowired
 SessionFactory sessionFactory;
-	@Override
+	
 	public Supplier getSupplier(int supplierid) {
 		try
 		{
@@ -30,7 +30,7 @@ SessionFactory sessionFactory;
 		}
 	}
 
-	@Override
+
 	public boolean addSupplier(Supplier supplier) {
 		try
 		{
@@ -43,7 +43,7 @@ SessionFactory sessionFactory;
 	}
 	}
 
-	@Override
+
 	public boolean updateSupplier(Supplier supplier) {
 		try
 		{
@@ -55,7 +55,7 @@ SessionFactory sessionFactory;
 		return false;
 	}
 	}
-	@Override
+
 	public boolean deleteSupplier(Supplier supplier) {
 		try
 		{
@@ -67,7 +67,7 @@ SessionFactory sessionFactory;
 		return false;
 	}
 	}
-	@Override
+
 	public List<Supplier> listSupplier() {
 		try
 		{

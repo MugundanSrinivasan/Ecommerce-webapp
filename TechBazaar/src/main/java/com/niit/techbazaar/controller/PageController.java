@@ -1,12 +1,16 @@
 package com.niit.techbazaar.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.UserDetailDAO;
+import com.niit.backendproject.model.Product;
 import com.niit.backendproject.model.UserDetail;
 
 
@@ -15,9 +19,13 @@ import com.niit.backendproject.model.UserDetail;
 public class PageController {
 	@Autowired
 	UserDetailDAO userdetailDAO;
+	@Autowired
+	ProductDAO productDAO;
 	@RequestMapping(value= {"/","/home"})
-	public String rootPage()
+	public String rootPage(Model m)
 	{
+		List<Product> prod=productDAO.listProduct();
+		m.addAttribute("prod",prod);
 		return "Home";
 	}
 @RequestMapping(value="login")

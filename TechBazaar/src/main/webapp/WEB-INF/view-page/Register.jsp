@@ -75,7 +75,7 @@
 					 <input class="input100" type="text" name="address" path="address"  placeholder="Type your Address"/>
 						
 					</div>
-					<form:hidden path="role" value="ROLE_ADMIN"/> 
+					<form:hidden path="role" value="ROLE_USER"/> 
 					<form:hidden path="enabled" value="TRUE"/> 
 					<br/><br/>
 					<div class="container-login100-form-btn">

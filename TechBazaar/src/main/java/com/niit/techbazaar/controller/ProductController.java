@@ -1,6 +1,7 @@
 package com.niit.techbazaar.controller;
 
 import java.io.BufferedOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
@@ -45,7 +46,7 @@ public class ProductController {
 		Product product1=new Product();
 		m.addAttribute(product1);
 		m.addAttribute("productlist",productDAO.listProduct());
-		String path="E:\\project\\workspace\\TechBazaar\\src\\main\\webapp\\resources\\images";
+		String path="E:\\project\\workspace\\TechBazaar\\src\\main\\webapp\\resources\\images\\";
 		path=path+String.valueOf(product.getProductid())+".jpg";
 		File file=new File(path);
 		
@@ -115,6 +116,15 @@ public class ProductController {
 		m.addAttribute("productlist",productDAO.listProduct());
 		return "ProductDisplay";
 	}
+	@RequestMapping("/continueshopping")
+	public String displaycartproduct(Model m)
+	{/*
+		Product product=new Product();
+		m.addAttribute(product);
+		m.addAttribute("categorylist", this.getCategory());*/
+		m.addAttribute("productlist",productDAO.listProduct());
+		return "ProductDisplay";
+	}
 	@RequestMapping("totalproduct/{productid}")
 	public String totalproduct(@PathVariable("productid")int productid,Model m)
 	{
@@ -132,5 +142,6 @@ public class ProductController {
 			categoryData.put(category.getCategoryid(),category.getCategoryname());
 		}
 		return categoryData;
-	}	
+	}
+
 }

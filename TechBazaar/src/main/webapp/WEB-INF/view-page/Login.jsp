@@ -13,21 +13,30 @@
 
       <link rel="stylesheet" href="resources/css/style.css">
 
-  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+ <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 </head>
 
 <body>
 
- <form action="/perform_login"  method="post" role="form" >
- <input   type="text" name="username" placeholder="username" required />
-<input  type="password" name="password" placeholder="password" required />
-<input type="submit" name="ok">
-  </form>
-<!--   <div id="wrapper">
+ <form action="<c:url value='/perform_login'></c:url>" method="post" role="form"> 
+		<table style="with: 50%">
+			<tr>
+				<td>Username</td>
+				<td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+		</table>
+		<input type="submit" value="Submit" />
+  </form>  
+<%--   <div id="wrapper">
 
       <div id="boxy-login-wrapper">
 
-             <form id="boxy-login-form" name="boxy-login-form" action="/perform_login" method="POST" role="form"  > 
+             <form id="boxy-login-form" name="boxy-login-form" action="<c:url value="/perform_login"></c:url> method="post" role="form"  > 
               
                   <fieldset>
                       <div class="boxy-form-inner rotateFirst3d">
@@ -36,7 +45,7 @@
                       
                             <span class="side front">
                                   <span class="glyphicon glyphicon-user" data-toggle="tooltip" title="enter your username"></span>
-                                  <input id="boxy-input"  type="input" name="username" class="rotate" placeholder="username" required />
+                                  <input id="boxy-input"  type="text" name="username" class="rotate" placeholder="username" required />
                                   <button class="boxy-button next-field" data-step="0"></button>
                             </span>
 
@@ -84,8 +93,8 @@
   
 
     <script  src="resources/js/index.js"></script>
- -->
  
+  --%>
 
 
 </body>

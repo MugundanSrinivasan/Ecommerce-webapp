@@ -22,7 +22,7 @@ public class UserController {
 	public String loginSuccess(HttpSession session,Model m,@RequestParam(value="username") String name,@RequestParam(value="password") String password)
 	{
 		String page="";
-		
+		System.out.println("enter security");
 		boolean loggedIn=false;
 		
 		SecurityContext securityContext=SecurityContextHolder.getContext();
@@ -39,14 +39,14 @@ public class UserController {
 			if(role.getAuthority().equals("ROLE_ADMIN"))
 			{
 				loggedIn=true;
-				page="redirect:/";
+				page="redirect:/home";
 				session.setAttribute("loggedIn", loggedIn);
 				session.setAttribute("username", username);
 			}
 			else
 			{
 				loggedIn=true;
-				page="redirect:/";
+				page="redirect:/productdisplay";
 				session.setAttribute("loggedIn", loggedIn);
 				session.setAttribute("username", username);
 			}

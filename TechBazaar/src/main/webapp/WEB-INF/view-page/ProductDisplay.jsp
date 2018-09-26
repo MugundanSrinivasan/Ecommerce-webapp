@@ -53,7 +53,8 @@
 	</td>
 	<td class="text-right"> 
 	<a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-space-shuttle faa-passing animated"></i></a> 
-	<a href="totalproduct/${product.productid}" class="btn btn-primary"> View Product</a>
+	<a href="<c:url value='/totalproduct/${product.productid}'/>"> View Product</a>
+	
 	</td>
 </tr>
 

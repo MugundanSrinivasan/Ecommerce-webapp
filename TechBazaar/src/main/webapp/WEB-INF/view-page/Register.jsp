@@ -56,9 +56,15 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-23">
-						<form:input class="input100"  path="email"   placeholder="Type your email-id"/>
+						<form:input class="input100"  path="emailId"   placeholder="Type your email-id"/>
 						</div>
-					
+							<div class="wrap-input100 validate-input m-b-23">
+						<form:input class="input100"  path="customerName"   placeholder="Type your email-id"/>
+						</div>
+					<div class="wrap-input100 validate-input m-b-23">
+						<form:input class="input100"  path="mobileNo"   placeholder="Type your number"/>
+						</div>
+						
 					    <div class="wrap-input100 validate-input">
 					<form:input class="input100" path="password" placeholder="Type your password"/>
 						</div>
@@ -69,7 +75,7 @@
 					 <input class="input100" type="text" name="address" path="address"  placeholder="Type your Address"/>
 						
 					</div>
-					<form:hidden path="role" value="ROLE_USER"/> 
+					<form:hidden path="role" value="ROLE_ADMIN"/> 
 					<form:hidden path="enabled" value="TRUE"/> 
 					<br/><br/>
 					<div class="container-login100-form-btn">

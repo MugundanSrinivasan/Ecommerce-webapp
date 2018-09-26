@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@include file="Header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +9,9 @@
 </head>
 <body>
 <div class="container">
+
+<form action="<c:url value="addtocart/${product.productid}"/>" method="get">
+ 
 <table class="table" border="1">
 <tr>
 <td rowspan="9">
@@ -43,7 +46,6 @@
 <td>Category</td>
 <td>${categoryname}</td>
 </tr>
-<form action "<c:url value="addtocart/${product.productid}"/>" method="get">
 <tr>
 <td>Quantity</td>
 <td>
@@ -61,8 +63,9 @@
 <input type="submit" value="AddToCart" class="btn-btn-info btn-block"/>
 </td>
 </tr>
-</form>
+
 </table>
+</form>
 </div>
 </body>
 </html>

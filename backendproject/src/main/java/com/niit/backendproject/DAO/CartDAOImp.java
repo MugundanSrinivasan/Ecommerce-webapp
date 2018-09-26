@@ -2,16 +2,16 @@ package com.niit.backendproject.DAO;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 
-import javax.persistence.Query;
-
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backendproject.model.Cart;
+
 @Repository("cartDAO")
 @Transactional
 public class CartDAOImp implements CartDAO {
@@ -75,7 +75,7 @@ public class CartDAOImp implements CartDAO {
 		try
 		{
 			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from Cart where username=:myusername and status=:'NA'");
+			Query query=session.createQuery("from Cart where username=:myusername and status='NP'");
 			query.setParameter("myusername", username);
 			List<Cart> listCart=(List<Cart>)query.getResultList();
 			session.close();

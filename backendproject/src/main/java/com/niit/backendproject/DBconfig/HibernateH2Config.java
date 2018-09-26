@@ -2,6 +2,7 @@ package com.niit.backendproject.DBconfig;
 
 import java.util.Properties;
 
+
 import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
@@ -17,6 +18,8 @@ import com.niit.backendproject.DAO.CartDAO;
 import com.niit.backendproject.DAO.CartDAOImp;
 import com.niit.backendproject.DAO.CategoryDAO;
 import com.niit.backendproject.DAO.CategoryDAOImp;
+import com.niit.backendproject.DAO.OrderDetailDAO;
+import com.niit.backendproject.DAO.OrderDetailDAOImp;
 import com.niit.backendproject.DAO.ProductDAO;
 import com.niit.backendproject.DAO.ProductDAOImp;
 import com.niit.backendproject.DAO.SupplierDAO;
@@ -25,6 +28,7 @@ import com.niit.backendproject.DAO.UserDetailDAO;
 import com.niit.backendproject.DAO.UserDetailDAOImp;
 import com.niit.backendproject.model.Cart;
 import com.niit.backendproject.model.Category;
+import com.niit.backendproject.model.OrderDetail;
 import com.niit.backendproject.model.Product;
 import com.niit.backendproject.model.Supplier;
 import com.niit.backendproject.model.UserDetail;
@@ -59,6 +63,7 @@ public class HibernateH2Config {
 		sfb.addAnnotatedClass(Product.class);
 		sfb.addAnnotatedClass(UserDetail.class);
 		sfb.addAnnotatedClass(Cart.class);
+		sfb.addAnnotatedClass(OrderDetail.class);
 		System.out.println("session factory");
 		sfb.addProperties(pro);
 		SessionFactory sessionFactory= sfb.buildSessionFactory();
@@ -103,9 +108,17 @@ public UserDetailDAO getUserDetailDAO()
 
 public CartDAO getCartDAO()
 {
-	System.out.println("User bean created");
+	System.out.println("cart bean created");
      return new CartDAOImp();
 }
+@Bean(name="orderdetailDAO")
+
+public OrderDetailDAO getOrderDetailDAO()
+{
+	System.out.println("order bean created");
+     return new OrderDetailDAOImp();
+}
+
 }
 
 

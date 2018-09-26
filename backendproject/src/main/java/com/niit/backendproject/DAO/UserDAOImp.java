@@ -12,7 +12,6 @@ import com.niit.backendproject.model.User;
 public class UserDAOImp implements UserDAO {
 @Autowired
 SessionFactory sessionFactory;
-	@Override
 	public boolean registerUser(User user){
 		try
 		{
@@ -24,7 +23,6 @@ SessionFactory sessionFactory;
 		return false;
 	}
 	}
-	@Override
 	public boolean updateUser(User user) {
 		try
 		{
@@ -36,7 +34,6 @@ SessionFactory sessionFactory;
 			return false;
 		}
 		}	
-	@Override
 	public User getUser(String username) {
 		try
 		{

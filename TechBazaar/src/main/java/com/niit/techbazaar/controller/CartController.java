@@ -29,7 +29,7 @@ public class CartController {
 @RequestMapping(value="totalproduct/addtocart/{productid}")
 public String addcartitem(@RequestParam("quantity")int quantity,@PathVariable("productid")int productid,HttpSession session,Model m)
 {
-	System.out.println("Quantity ");
+	System.out.println("Quantity");
 	Product product= productDAO.getProduct(productid);
 	String username=(String)session.getAttribute("username");
 	Cart cart= new Cart();
